@@ -22,16 +22,16 @@ This project is a Django-based financial system that integrates with Alpha Vanta
 
 ###Local Development
 1. Clone the repository:
-```bash
+   ```bash
 git clone https://github.com/ntwari-bruce/Backtesting-Module.git
 cd Backtesting-Module
 
 2. Build and Run Docker Containers: Make sure Docker is installed. Run the following command to build and start the containers:
-```bash
+   ```bash
 docker-compose up --build
 
 3. Run Database Migrations: Inside the Docker container, apply the migrations to create the necessary database tables:
-```bash
+   ```bash
 docker-compose exec web python manage.py migrate
 
 4. Access the Application: Open your browser and go to http://localhost:8080. Available API endpoints:
@@ -42,7 +42,7 @@ docker-compose exec web python manage.py migrate
 5. Running Tests
 To run the test suite, use the following command:
 
-```bash
+   ```bash
 Copy code
 docker-compose exec web python manage.py test
 Environment Variables
@@ -50,7 +50,7 @@ Environment Variables
 ##Local Environment (.env)
 For local development, you can configure the following environment variables in a .env file:
 
-```bash
+   ```bash
 SECRET_KEY="your_secret_key"
 DEBUG=True
 ALLOWED_HOSTS="0.0.0.0,localhost,127.0.0.1"
