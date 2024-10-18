@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Django-based financial system that integrates with Alpha Vantage API to fetch stock price data, applies a backtesting strategy using historical data, and provides machine learning-powered stock price predictions. The project is deployed on Google Cloud Run using PostgreSQL as the database and includes a CI/CD pipeline with GitHub Actions for automated deployment.
+This project is a Django-based backtesting module that integrates with Alpha Vantage API to fetch stock price data, applies a backtesting strategy using historical data, and provides machine learning-powered stock price predictions. The project is deployed on Google Cloud Run using PostgreSQL as the database and includes a CI/CD pipeline with GitHub Actions for automated deployment.
 
 ## Features
 
