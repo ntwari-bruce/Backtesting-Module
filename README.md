@@ -62,7 +62,7 @@ For local development, you can configure the following environment variables in 
          DB_PASSWORD=nkiramacumu8@
          DB_PORT=5432
 
-##Cloud Environment (env.yaml)
+## Cloud Environment (env.yaml)
 For cloud deployment, configure your environment variables in env.yaml:
 
          ```bash
@@ -74,15 +74,14 @@ For cloud deployment, configure your environment variables in env.yaml:
          ALLOWED_HOSTS: "0.0.0.0,localhost,127.0.0.1,financial-system-785091501212.us-central1.run.app"
          SQL_INSTANCE_CONNECTION_NAME: "financial-439004:us-central1:financial-db-instance"
 
-##Cloud Deployment (Google Cloud Run)
+## Cloud Deployment (Google Cloud Run)
 
 1. Build Docker Image:
 
       ```bash
       docker build -t gcr.io/financial-439004/financial_system:latest .
-      2. Push Docker Image to Google Container Registry:
+2. Push Docker Image to Google Container Registry:
       ```bash
-      Copy code
       docker push gcr.io/financial-439004/financial_system:latest
 
 3. Submit Build to Google Cloud:
@@ -92,22 +91,21 @@ For cloud deployment, configure your environment variables in env.yaml:
 
 5. Deploy to Google Cloud Run:
 
-   ```bash
-   gcloud run deploy financial-system \
-      --image gcr.io/financial-439004/financial_system:latest \
-      --platform managed \
-      --region us-central1 \
-      --allow-unauthenticated \
-      --add-cloudsql-instances=financial-439004:us-central1:financial-db-instance \
-      --env-vars-file=env.yaml
+      ```bash
+      gcloud run deploy financial-system \
+         --image gcr.io/financial-439004/financial_system:latest \
+         --platform managed \
+         --region us-central1 \
+         --allow-unauthenticated \
+         --add-cloudsql-instances=financial-439004:us-central1:financial-db-instance \
+         --env-vars-file=env.yaml
 
 
-#API Endpoints
+# API Endpoints
 
 1. Fetch Stock Data:
 
    ```
-      Copy code
       GET /fetch-stock/<symbol>/
       Example: [https://financial-system-785091501212.us-central1.run.app/fetch-stock/IBM]
 
@@ -121,23 +119,22 @@ For cloud deployment, configure your environment variables in env.yaml:
 Generate Report:
       
       ```
-      Copy code
       GET /generate-report/<symbol>/?pdf
       Example: [https://financial-system-785091501212.us-central1.run.app/generate-report/IBM/?pdf]
 
       
-#CI/CD Pipeline with GitHub Actions
+# CI/CD Pipeline with GitHub Actions
 
 This project includes a CI/CD pipeline setup using GitHub Actions to automate the build, push, and deployment process to Google Cloud Run. The workflow triggers on every push to the main branch, building the Docker container, pushing it to Google Container Registry (GCR), and deploying it to Google Cloud Run.
 
-##Steps in the GitHub Actions Workflow
+## Steps in the GitHub Actions Workflow
 -**Checkout the code:** The workflow starts by checking out the latest code from the repository.
 -**Build Docker services using docker-compose:** The workflow runs docker-compose to build the necessary services defined in docker-compose.yml.
 -**Tag and push Docker image:** After building the Docker image, it tags the image and pushes it to Google Container Registry (GCR).
 -**Submit build to Google Cloud:** The workflow submits the build to Google Cloud Build for further processing.
 -**Deploy to Google Cloud Run:** Finally, the workflow deploys the application to Google Cloud Run, making it available to the public.
 
-##GitHub Actions Configuration
+## GitHub Actions Configuration
 To automate this process, we use a GitHub Actions workflow defined in [.github/workflows/deploy.yml]. Below is an outline of the key parts of the workflow:
 
       ```
@@ -186,7 +183,7 @@ To automate this process, we use a GitHub Actions workflow defined in [.github/w
               --add-cloudsql-instances=financial-439004:us-central1:financial-db-instance \
               --env-vars-file=env.yaml
       
-##Setting Up GitHub Secrets
+## Setting Up GitHub Secrets
 To secure sensitive information like Google Cloud authentication, you need to set up GitHub Secrets:
 
 1. **GCP_SA_KEY**: Add your Google Cloud service account key in JSON format. This is required for authentication with Google Cloud to push images to the Google Container Registry (GCR) and deploy to Google Cloud Run.
@@ -206,7 +203,7 @@ The workflow is automatically triggered on every push to the **main** branch. Yo
 3. GitHub Actions will build the Docker image, push it to GCR, and deploy it to Google Cloud Run.
 4. The new version of the application will be live on Google Cloud Run.
 
-##Technologies Used
+## Technologies Used
 
 -**Backend: Django**
 -**Database: PostgreSQL (Cloud SQL)**
