@@ -20,7 +20,7 @@ This project is a Django-based financial system that integrates with Alpha Vanta
 
 ## Setup Instructions
 
-###Local Development
+## Local Development
 1. Clone the repository:
 
    ```bash
@@ -48,7 +48,7 @@ This project is a Django-based financial system that integrates with Alpha Vanta
          docker-compose exec web python manage.py test
          Environment Variables
 
-##Local Environment (.env)
+## Local Environment (.env)
 For local development, you can configure the following environment variables in a .env file:
 
          ```bash
