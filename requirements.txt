@@ -1,0 +1,16 @@
+Django>=4.0, <5.0
+djangorestframework
+requests
+psycopg2-binary
+matplotlib
+plotly
+pdfkit
+gunicorn==20.1.0
+python-decouple
+pandas==2.2.3
+joblib
+scikit-learn
+psycopg2
+django-environ
+
+
