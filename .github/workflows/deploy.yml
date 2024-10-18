@@ -21,10 +21,12 @@ jobs:
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v2
 
+    - name: Configure Docker to use gcloud credentials
+      run: gcloud auth configure-docker gcr.io
+
     - name: Use gcloud CLI
       run: gcloud config set project financial-439004
 
-    # The rest of your steps remain the same
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
