@@ -118,9 +118,9 @@ For cloud deployment, configure your environment variables in env.yaml:
    
 Generate Report:
       
-      ```
-      GET /generate-report/<symbol>/?pdf
-      Example: [https://financial-system-785091501212.us-central1.run.app/generate-report/IBM/?pdf]
+         ```
+         GET /generate-report/<symbol>/?pdf
+         Example: [https://financial-system-785091501212.us-central1.run.app/generate-report/IBM/?pdf]
 
       
 # CI/CD Pipeline with GitHub Actions
